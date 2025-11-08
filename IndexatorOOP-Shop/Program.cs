@@ -35,6 +35,7 @@ namespace IndexatorOOP_Shop
             Console.WriteLine("Назва товару:" + productname);
             Console.WriteLine("Назва магазину:" + name);
             Console.WriteLine("Ціна товару:" + price + "ГРН");
+            Console.WriteLine();
         }
 
     }
@@ -102,7 +103,7 @@ namespace IndexatorOOP_Shop
 
 
             Console.WriteLine("Інформація товару за індексом:");
-            for(int i = 0;i < 2; i++)
+            for(int i = 0;i < articles.Length; i++)
             {
                 Article article = store[i];
                 if (article != null)
@@ -112,7 +113,8 @@ namespace IndexatorOOP_Shop
             Console.WriteLine("Пошук товару за назвою");
             string searchProduct = Console.ReadLine();
             store.SearchByName(searchProduct);
-
+            
+            Console.ReadKey();
 
         }
     }
