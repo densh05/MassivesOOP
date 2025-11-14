@@ -6,18 +6,17 @@ namespace IndexatorOOP_Shop
     class Article
     {
 
-
-        private string productname;
+        private string productname; //Приватні поля класу Article
         private string name;
         private double price;
 
-        public Article(string productname, string name ,double price)
+        public Article(string productname, string name ,double price) //Користувальницький конструктор
         {
             this.productname = productname;
             this.name = name;
             this.price = price;
         }
-        public string Productname
+        public string Productname //Властивості на читання
         {
             get { return productname; }
         }
@@ -30,7 +29,7 @@ namespace IndexatorOOP_Shop
             get { return price; }
         }
 
-        public void ShowInfo()
+        public void ShowInfo() //Вивід інформації
         {
             Console.WriteLine("Назва товару:" + productname);
             Console.WriteLine("Назва магазину:" + name);
@@ -44,14 +43,14 @@ namespace IndexatorOOP_Shop
     {
         
 
-        private Article[] articles;
+        private Article[] articles; //Приватне поле типу Article[]
 
-        public Store(Article[] articles)
+        public Store(Article[] articles) //Конструктор з параметрами
         {
             this.articles = articles;
         }
 
-        public Article this[int index]
+        public Article this[int index] //Індексатор
         {
             get
             {
@@ -63,23 +62,21 @@ namespace IndexatorOOP_Shop
             }
         }
 
-        public void SearchByName(string productname)
+        public void SearchByName(string productname) //Метод пошуку товару у магазині
         {
             bool found = false;
 
-            for (int i = 0; i < articles.Length; i++)
+            for (int i = 0; i < articles.Length; i++) //Циклічна конструкція
             {
-                if (articles[i].Productname == productname)
+                if (articles[i].Productname == productname) //Якщо знайдено товар який передали в метод,визивається інформація
                 {
                     articles[i].ShowInfo();
                     found = true;
                     
                 }
                     
-               
- 
             }
-            if (!found)
+            if (!found) //Якщо нічого не знайдено,викликається наступна строка
                 Console.WriteLine("Невідомий продукт");
         }
 
@@ -91,14 +88,15 @@ namespace IndexatorOOP_Shop
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.Unicode;
+            Console.InputEncoding = Encoding.Unicode;
 
-            Article[] articles = new Article[]
+            Article[] articles = new Article[] //Єкземпляр класу Article
             {
                 new Article("Печиво","АТБ",29.50),
                 new Article("Мандарин","Сільпо",49.99)
             };
 
-            Store store = new Store(articles);
+             Store store = new Store(articles); //Єкземпляр класу Store,articles передається в конструктор
 
 
 
