@@ -61,6 +61,8 @@ namespace Indexator_TrasnlateOOP
             Console.WriteLine(dictionary["карандаш"]);
             Console.WriteLine(dictionary["яблоко"]);
             Console.WriteLine(dictionary["солнце"]);
+            Console.WriteLine(dictionary["телефон"]);
+
 
             Console.WriteLine(new string('-', 20));
 

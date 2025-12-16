@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace IndexatorOOP_Shop
@@ -50,14 +51,22 @@ namespace IndexatorOOP_Shop
             this.articles = articles;
         }
 
-        public Article this[int index] //Індексатор
+        public string this[int index] //Індексатор  32 рядок повертає інформацію
         {
             get
             {
                 if (index >= 0 && index < articles.Length)
-                    return articles[index];
+                {
+                    Article article = articles[index];
+                    return $"Назва товару {article.Productname}\n" +
+                        $"Назва магазину {article.Name}\n" + 
+                        $"Ціна {article.Price}\n";
+                }
                 else
-                    return null;
+                {
+                    return ("Такого товару немає");
+                }
+                  
                 
             }
         }
@@ -103,9 +112,7 @@ namespace IndexatorOOP_Shop
             Console.WriteLine("Інформація товару за індексом:");
             for(int i = 0;i < articles.Length; i++)
             {
-                Article article = store[i];
-                if (article != null)
-                    article.ShowInfo();
+                Console.WriteLine(store[i]);
             }
 
             Console.WriteLine("Пошук товару за назвою");
