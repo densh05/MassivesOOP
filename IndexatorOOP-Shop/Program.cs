@@ -11,9 +11,9 @@ namespace IndexatorOOP_Shop
         private string name;
         private double price;
 
-        public Article(string productname, string name ,double price) //Користувальницький конструктор
+        public Article(string productname, string name ,double price) //Користувальницький конструктор,приймається інформація з 102 строці
         {
-            this.productname = productname;
+            this.productname = productname;  //Ініціалізуємо змінні
             this.name = name;
             this.price = price;
         }
@@ -46,7 +46,7 @@ namespace IndexatorOOP_Shop
 
         private Article[] articles; //Приватне поле типу Article[]
 
-        public Store(Article[] articles) //Конструктор з параметрами
+        public Store(Article[] articles) //Конструктор з параметрами,отримаємо аргумент при створенні єкземпляру классу Store
         {
             this.articles = articles;
         }
@@ -94,25 +94,25 @@ namespace IndexatorOOP_Shop
 
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) //Точка входу
         {
             Console.OutputEncoding = Encoding.Unicode;
             Console.InputEncoding = Encoding.Unicode;
 
-            Article[] articles = new Article[] //Єкземпляр класу Article
+            Article[] articles = new Article[] //Єкземпляр класу Article,заповнюємо массив значеннями,в користувальницький конструктор базового классу
             {
                 new Article("Печиво","АТБ",29.50),
                 new Article("Мандарин","Сільпо",49.99)
             };
 
-             Store store = new Store(articles); //Єкземпляр класу Store,articles передається в конструктор
+             Store store = new Store(articles); //Єкземпляр класу Store,articles(аргумент) передається в конструктор классу Store
 
 
 
             Console.WriteLine("Інформація товару за індексом:");
             for(int i = 0;i < articles.Length; i++)
             {
-                Console.WriteLine(store[i]);
+                Console.WriteLine(store[i]); //Використування індексатора,звертаємось до обьекта,як до массиву
             }
 
             Console.WriteLine("Пошук товару за назвою");
